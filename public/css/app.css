@@ -1,1 +1,23 @@
-.bg-card{background:linear-gradient(222deg,#ddd,#bdbdbd)}.fire{background:linear-gradient(222deg,#ffdab8,#cfcfcf)}.water{background:linear-gradient(222deg,#b8f1ff,#cfcfcf)}.poison{background:linear-gradient(222deg,#eeb8ff,#cfcfcf)}.grass{background:linear-gradient(222deg,#b8ffbc,#cfcfcf)}.bug{background:linear-gradient(222deg,#deffb8,#cfcfcf)}
+.bg-card {
+    background: linear-gradient(222deg, #dddddd, #bdbdbd);
+}
+
+.fire {
+    background: linear-gradient(222deg, #ffdab8, #cfcfcf);
+}
+
+.water {
+    background: linear-gradient(222deg, #b8f1ff, #cfcfcf);
+}
+
+.poison {
+    background: linear-gradient(222deg, #eeb8ff, #cfcfcf);
+}
+
+.grass {
+    background: linear-gradient(222deg, #b8ffbc, #cfcfcf);
+}
+
+.bug {
+    background: linear-gradient(222deg, #deffb8, #cfcfcf);
+}

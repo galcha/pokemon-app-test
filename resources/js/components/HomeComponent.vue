@@ -9,7 +9,7 @@ export default {
     },
     mounted () {
         axios
-        .get('http://localhost/api/pokemon')
+        .get('/api/pokemon')
         .then(response => (this.pokemon = response['data']['data']))
     }
 }
@@ -18,7 +18,7 @@ export default {
 <template>
     <div class="album py-5 bg-light">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-4 row-cols-md-5 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-3">
                 <div v-for="p in pokemon" class="col">
                     <div class="card shadow-sm bg-card" :class="p.types.split(',')">
                         <img :src="p.sprite" alt="">
