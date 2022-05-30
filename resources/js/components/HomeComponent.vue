@@ -29,7 +29,7 @@ export default {
                             
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <router-link :to="'/pokemon/'+p.id"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></router-link>
                                 </div>
                                 <small class="text-muted">{{p.types}}</small>
                             </div>

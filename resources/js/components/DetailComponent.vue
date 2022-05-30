@@ -2,58 +2,61 @@
 export default {
     data() {
         return {
-            pokemon: [{ "name": "Pikachu" }, {"name": "Bulbasaur"}]
+            pokemon: {}
         }
+    },
+    created() {
+        axios
+            .get('/api/pokemon/' + this.$route.params.id)
+            .then(response => (this.pokemon = response['data']['data']))
     }
 }
 </script>
 
 <template>
-    <body>
-        <header>
-            <div class="navbar navbar-dark bg-dark shadow-sm">
-                <div class="container">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        <img src="logo.svg" style="width: 30px; margin-right: 10px;">
-                        <strong>Pokemon list</strong>
-                    </a>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <router-link to="/"><div class="mb-2"><i class="bi-arrow-left mr-2"></i>Back to list</div></router-link>
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card mb-4 mb-xl-0">
+                        <div class="card-header">Sprite</div>
+                        <div class="card-body text-center">
+                            <img class="img-account-profile rounded-circle mb-2" :src="pokemon.sprite" alt="" style="width: 100%">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </header>
-
-        <main>
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-4 row-cols-md-5 g-3">
-                        <div v-for="p in pokemon" class="col">
-                            <div class="card shadow-sm bg-card ">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="">
-
-                                <div class="card-body">
-                                    #25
-                                    <h3>{{p.name}}</h3>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        </div>
-                                        <small class="text-muted">Electric</small>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-xl-8">
+                    <!-- Account details card-->
+                    <div class="card mb-4">
+                        <div class="card-header">Pokemon Details</div>
+                        <div class="card-body">
+                            <table style="width:100%">
+                                <tr>
+                                    <th>Name</th>
+                                    <td>{{pokemon.name}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pokedex ID</th>
+                                    <td>{{pokemon.pokemon_id}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Types</th>
+                                    <td>{{pokemon.types}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Weight</th>
+                                    <td>{{pokemon.weight}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Height</th>
+                                    <td>{{pokemon.height}}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </main>
-
-        <footer class="text-muted py-5">
-            <div class="container">
-                <p class="float-end mb-1">
-                    <a href="#">Back to top</a>
-                </p>
-            </div>
-        </footer>
-    </body>
+        </div>
+    </div>
 </template>
